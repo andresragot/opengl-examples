@@ -1,0 +1,39 @@
+# Visual Studio transient folders and files
+
+[Dd]ebug/
+[Rr]elease/
+x86/
+x64/
+.vs/
+*.suo
+*.user
+
+# Prerequisites
+
+*.d
+
+# Compiled object files
+
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled headers
+
+*.gch
+*.pch
+
+# Compiled dynamic libraries
+
+*.so
+*.dylib
+*.dll
+
+# Executables
+
+*.exe
+*.out
+*.app
+
+
