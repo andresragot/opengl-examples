@@ -1,5 +1,5 @@
 
-// Este c骴igo es de dominio p鷅lico
+// Este c贸digo es de dominio p煤blico
 // angel.rodriguez@udit.es
 
 #pragma once
@@ -48,15 +48,15 @@ namespace udit
         "    fragment_color = vec4(front_color, 1.0);"
         "}";
 
-    Scene::Scene(unsigned width, unsigned height)
+    Scene::Scene(int width, int height)
     :
         angle(0)
     {
-        // Se establece la configuraci髇 b醩ica:
+        // Se establece la configuraci贸n b谩sica:
 
         glEnable     (GL_CULL_FACE);
-        glDisable    (GL_DEPTH_TEST);
-        glClearColor (.1f, .1f, .1f, 1.f);
+        glEnable     (GL_DEPTH_TEST);
+        glClearColor (0.f, 0.f, 0.f, 1.f);
 
         // Se compilan y se activan los shaders:
 
@@ -77,23 +77,37 @@ namespace udit
 
     void Scene::render ()
     {
-        glClear (GL_COLOR_BUFFER_BIT);
+        glEnable     (GL_DEPTH_TEST);
+        glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        // Se rota el cubo y se empuja hacia el fondo:
+        // Se dibuja un cubo aplic谩ndole un transform:
 
-        glm::mat4 model_view_matrix(1);
+        glm::mat4 model_view_matrix_1(1);
 
-        model_view_matrix = glm::translate (model_view_matrix, glm::vec3(0.f, 0.f, -4.f));
-        model_view_matrix = glm::rotate    (model_view_matrix, angle, glm::vec3(1.f, 2.f, 1.f));
+        model_view_matrix_1 = glm::translate (model_view_matrix_1, glm::vec3(0.f, 0.f, -20.f));
+        model_view_matrix_1 = glm::rotate    (model_view_matrix_1, angle, glm::vec3(0.f, 1.f, 0.f));
+        model_view_matrix_1 = glm::scale     (model_view_matrix_1, glm::vec3(2.0f));
 
-        glUniformMatrix4fv (model_view_matrix_id, 1, GL_FALSE, glm::value_ptr(model_view_matrix));
+        glUniformMatrix4fv (model_view_matrix_id, 1, GL_FALSE, glm::value_ptr(model_view_matrix_1));
 
-        // Se dibuja el cubo:
+        cube.render ();
+
+        // Se dibuja otro cubo combinando su transform con el del anterior:
+
+        glm::mat4 model_view_matrix_2 = glm::mat4(1);
+
+        model_view_matrix_2 = glm::rotate    (model_view_matrix_2, angle, glm::vec3(0.f, 1.f, 0.f));
+        model_view_matrix_2 = glm::translate (model_view_matrix_2, glm::vec3(5.f, 0.f, 0.f));
+        model_view_matrix_2 = glm::scale     (model_view_matrix_2, glm::vec3(0.5f));
+
+        model_view_matrix_2 = model_view_matrix_1 * model_view_matrix_2;
+        
+        glUniformMatrix4fv (model_view_matrix_id, 1, GL_FALSE, glm::value_ptr(model_view_matrix_2));
 
         cube.render ();
     }
 
-    void Scene::resize (unsigned width, unsigned height)
+    void Scene::resize (int width, int height)
     {
         glm::mat4 projection_matrix = glm::perspective (20.f, GLfloat(width) / height, 1.f, 5000.f);
 
@@ -111,7 +125,7 @@ namespace udit
         GLuint   vertex_shader_id = glCreateShader (GL_VERTEX_SHADER  );
         GLuint fragment_shader_id = glCreateShader (GL_FRAGMENT_SHADER);
 
-        // Se carga el c骴igo de los shaders:
+        // Se carga el c贸digo de los shaders:
 
         const char *   vertex_shaders_code[] = {          vertex_shader_code.c_str () };
         const char * fragment_shaders_code[] = {        fragment_shader_code.c_str () };
@@ -126,7 +140,7 @@ namespace udit
         glCompileShader (  vertex_shader_id);
         glCompileShader (fragment_shader_id);
 
-        // Se comprueba que si la compilaci髇 ha tenido 閤ito:
+        // Se comprueba que si la compilaci贸n ha tenido 茅xito:
 
         glGetShaderiv   (  vertex_shader_id, GL_COMPILE_STATUS, &succeeded);
         if (!succeeded) show_compilation_error (  vertex_shader_id);
@@ -147,7 +161,7 @@ namespace udit
 
         glLinkProgram   (program_id);
 
-        // Se comprueba si el linkage ha tenido 閤ito:
+        // Se comprueba si el linkage ha tenido 茅xito:
 
         glGetProgramiv  (program_id, GL_LINK_STATUS, &succeeded);
         if (!succeeded) show_linkage_error (program_id);
