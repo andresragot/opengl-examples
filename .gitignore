@@ -37,3 +37,5 @@ x64/
 *.app
 
 
+# Mac Specific files
+*.DS_Store

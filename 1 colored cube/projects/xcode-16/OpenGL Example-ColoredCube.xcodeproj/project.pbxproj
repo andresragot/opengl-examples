@@ -1,0 +1,391 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8E11D23B2CF4DAEE0085AE70 /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E11D2372CF4DAEE0085AE70 /* Cube.cpp */; };
+		8E11D23C2CF4DAEE0085AE70 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E11D23A2CF4DAEE0085AE70 /* Scene.cpp */; };
+		8E11D23D2CF4DAEE0085AE70 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E11D2382CF4DAEE0085AE70 /* main.cpp */; };
+		8E11D2402CF4DB080085AE70 /* Window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E11D23F2CF4DB080085AE70 /* Window.cpp */; };
+		8E11D2432CF4DF3A0085AE70 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E11D2422CF4DF3A0085AE70 /* Cocoa.framework */; };
+		8E11D2452CF4DF410085AE70 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E11D2442CF4DF410085AE70 /* Metal.framework */; };
+		8E11D2472CF4DF440085AE70 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E11D2462CF4DF440085AE70 /* Carbon.framework */; };
+		8E11D2492CF4DF4B0085AE70 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E11D2482CF4DF4B0085AE70 /* EventKit.framework */; };
+		8E11D24B2CF4DF500085AE70 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E11D24A2CF4DF500085AE70 /* IOKit.framework */; };
+		8E11D24D2CF4DF560085AE70 /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E11D24C2CF4DF560085AE70 /* GameController.framework */; };
+		8E11D24F2CF4DF630085AE70 /* ForceFeedback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E11D24E2CF4DF630085AE70 /* ForceFeedback.framework */; };
+		8E11D2512CF4DF6A0085AE70 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E11D2502CF4DF6A0085AE70 /* CoreVideo.framework */; };
+		8E11D2532CF4DF710085AE70 /* CoreHaptics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E11D2522CF4DF710085AE70 /* CoreHaptics.framework */; };
+		8E11D2552CF4DF760085AE70 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E11D2542CF4DF760085AE70 /* CoreGraphics.framework */; };
+		8E11D2572CF4DF7D0085AE70 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E11D2562CF4DF7D0085AE70 /* CoreFoundation.framework */; };
+		8E11D2592CF4DF850085AE70 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E11D2582CF4DF850085AE70 /* AudioToolbox.framework */; };
+		8E11D25B2CF4DF8B0085AE70 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E11D25A2CF4DF8B0085AE70 /* CoreAudio.framework */; };
+		8E11D2602CF4DF990085AE70 /* libSDL2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E11D25C2CF4DF990085AE70 /* libSDL2d.a */; };
+		8E11D2612CF4DF990085AE70 /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E11D25D2CF4DF990085AE70 /* libSDL2.a */; };
+		8E11D2622CF4DF990085AE70 /* libSDL2main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E11D25E2CF4DF990085AE70 /* libSDL2main.a */; };
+		8E11D2632CF4DF990085AE70 /* libSDL2maind.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E11D25F2CF4DF990085AE70 /* libSDL2maind.a */; };
+		8E11D2652CF4E1280085AE70 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E11D2642CF4E1280085AE70 /* glad.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8E11D21F2CF4D89D0085AE70 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8E11D2212CF4D89D0085AE70 /* OpenGL Example-ColoredCube */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "OpenGL Example-ColoredCube"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E11D2362CF4DAEE0085AE70 /* Cube.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Cube.hpp; path = "/Users/andresragot/projects/opengl-examples/1 colored cube/code/Cube.hpp"; sourceTree = "<absolute>"; };
+		8E11D2372CF4DAEE0085AE70 /* Cube.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Cube.cpp; path = "/Users/andresragot/projects/opengl-examples/1 colored cube/code/Cube.cpp"; sourceTree = "<absolute>"; };
+		8E11D2382CF4DAEE0085AE70 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = "/Users/andresragot/projects/opengl-examples/1 colored cube/code/main.cpp"; sourceTree = "<absolute>"; };
+		8E11D2392CF4DAEE0085AE70 /* Scene.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Scene.hpp; path = "/Users/andresragot/projects/opengl-examples/1 colored cube/code/Scene.hpp"; sourceTree = "<absolute>"; };
+		8E11D23A2CF4DAEE0085AE70 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Scene.cpp; path = "/Users/andresragot/projects/opengl-examples/1 colored cube/code/Scene.cpp"; sourceTree = "<absolute>"; };
+		8E11D23E2CF4DB080085AE70 /* Window.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Window.hpp; path = "/Users/andresragot/projects/opengl-examples/shared/code/Window.hpp"; sourceTree = "<absolute>"; };
+		8E11D23F2CF4DB080085AE70 /* Window.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Window.cpp; path = "/Users/andresragot/projects/opengl-examples/shared/code/Window.cpp"; sourceTree = "<absolute>"; };
+		8E11D2422CF4DF3A0085AE70 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		8E11D2442CF4DF410085AE70 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		8E11D2462CF4DF440085AE70 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		8E11D2482CF4DF4B0085AE70 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		8E11D24A2CF4DF500085AE70 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		8E11D24C2CF4DF560085AE70 /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
+		8E11D24E2CF4DF630085AE70 /* ForceFeedback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ForceFeedback.framework; path = System/Library/Frameworks/ForceFeedback.framework; sourceTree = SDKROOT; };
+		8E11D2502CF4DF6A0085AE70 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		8E11D2522CF4DF710085AE70 /* CoreHaptics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreHaptics.framework; path = System/Library/Frameworks/CoreHaptics.framework; sourceTree = SDKROOT; };
+		8E11D2542CF4DF760085AE70 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8E11D2562CF4DF7D0085AE70 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		8E11D2582CF4DF850085AE70 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8E11D25A2CF4DF8B0085AE70 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		8E11D25C2CF4DF990085AE70 /* libSDL2d.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2d.a; path = ../../../libraries/sdl/lib/macos/libSDL2d.a; sourceTree = "<group>"; };
+		8E11D25D2CF4DF990085AE70 /* libSDL2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2.a; path = ../../../libraries/sdl/lib/macos/libSDL2.a; sourceTree = "<group>"; };
+		8E11D25E2CF4DF990085AE70 /* libSDL2main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2main.a; path = ../../../libraries/sdl/lib/macos/libSDL2main.a; sourceTree = "<group>"; };
+		8E11D25F2CF4DF990085AE70 /* libSDL2maind.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2maind.a; path = ../../../libraries/sdl/lib/macos/libSDL2maind.a; sourceTree = "<group>"; };
+		8E11D2642CF4E1280085AE70 /* glad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = glad.c; path = ../../../libraries/glad/source/glad.c; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8E11D21E2CF4D89D0085AE70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E11D2602CF4DF990085AE70 /* libSDL2d.a in Frameworks */,
+				8E11D2612CF4DF990085AE70 /* libSDL2.a in Frameworks */,
+				8E11D2622CF4DF990085AE70 /* libSDL2main.a in Frameworks */,
+				8E11D2632CF4DF990085AE70 /* libSDL2maind.a in Frameworks */,
+				8E11D25B2CF4DF8B0085AE70 /* CoreAudio.framework in Frameworks */,
+				8E11D2592CF4DF850085AE70 /* AudioToolbox.framework in Frameworks */,
+				8E11D2572CF4DF7D0085AE70 /* CoreFoundation.framework in Frameworks */,
+				8E11D2552CF4DF760085AE70 /* CoreGraphics.framework in Frameworks */,
+				8E11D2532CF4DF710085AE70 /* CoreHaptics.framework in Frameworks */,
+				8E11D2512CF4DF6A0085AE70 /* CoreVideo.framework in Frameworks */,
+				8E11D24F2CF4DF630085AE70 /* ForceFeedback.framework in Frameworks */,
+				8E11D24D2CF4DF560085AE70 /* GameController.framework in Frameworks */,
+				8E11D24B2CF4DF500085AE70 /* IOKit.framework in Frameworks */,
+				8E11D2492CF4DF4B0085AE70 /* EventKit.framework in Frameworks */,
+				8E11D2472CF4DF440085AE70 /* Carbon.framework in Frameworks */,
+				8E11D2452CF4DF410085AE70 /* Metal.framework in Frameworks */,
+				8E11D2432CF4DF3A0085AE70 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8E11D2182CF4D89C0085AE70 = {
+			isa = PBXGroup;
+			children = (
+				8E11D2642CF4E1280085AE70 /* glad.c */,
+				8E11D2362CF4DAEE0085AE70 /* Cube.hpp */,
+				8E11D23E2CF4DB080085AE70 /* Window.hpp */,
+				8E11D23F2CF4DB080085AE70 /* Window.cpp */,
+				8E11D2372CF4DAEE0085AE70 /* Cube.cpp */,
+				8E11D2382CF4DAEE0085AE70 /* main.cpp */,
+				8E11D2392CF4DAEE0085AE70 /* Scene.hpp */,
+				8E11D23A2CF4DAEE0085AE70 /* Scene.cpp */,
+				8E11D2412CF4DF3A0085AE70 /* Frameworks */,
+				8E11D2222CF4D89D0085AE70 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8E11D2222CF4D89D0085AE70 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8E11D2212CF4D89D0085AE70 /* OpenGL Example-ColoredCube */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8E11D2412CF4DF3A0085AE70 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8E11D25D2CF4DF990085AE70 /* libSDL2.a */,
+				8E11D25C2CF4DF990085AE70 /* libSDL2d.a */,
+				8E11D25E2CF4DF990085AE70 /* libSDL2main.a */,
+				8E11D25F2CF4DF990085AE70 /* libSDL2maind.a */,
+				8E11D25A2CF4DF8B0085AE70 /* CoreAudio.framework */,
+				8E11D2582CF4DF850085AE70 /* AudioToolbox.framework */,
+				8E11D2562CF4DF7D0085AE70 /* CoreFoundation.framework */,
+				8E11D2542CF4DF760085AE70 /* CoreGraphics.framework */,
+				8E11D2522CF4DF710085AE70 /* CoreHaptics.framework */,
+				8E11D2502CF4DF6A0085AE70 /* CoreVideo.framework */,
+				8E11D24E2CF4DF630085AE70 /* ForceFeedback.framework */,
+				8E11D24C2CF4DF560085AE70 /* GameController.framework */,
+				8E11D24A2CF4DF500085AE70 /* IOKit.framework */,
+				8E11D2482CF4DF4B0085AE70 /* EventKit.framework */,
+				8E11D2462CF4DF440085AE70 /* Carbon.framework */,
+				8E11D2442CF4DF410085AE70 /* Metal.framework */,
+				8E11D2422CF4DF3A0085AE70 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8E11D2202CF4D89D0085AE70 /* OpenGL Example-ColoredCube */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8E11D2282CF4D89D0085AE70 /* Build configuration list for PBXNativeTarget "OpenGL Example-ColoredCube" */;
+			buildPhases = (
+				8E11D21D2CF4D89D0085AE70 /* Sources */,
+				8E11D21E2CF4D89D0085AE70 /* Frameworks */,
+				8E11D21F2CF4D89D0085AE70 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OpenGL Example-ColoredCube";
+			packageProductDependencies = (
+			);
+			productName = "OpenGL Example-ColoredCube";
+			productReference = 8E11D2212CF4D89D0085AE70 /* OpenGL Example-ColoredCube */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8E11D2192CF4D89C0085AE70 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1610;
+				TargetAttributes = {
+					8E11D2202CF4D89D0085AE70 = {
+						CreatedOnToolsVersion = 16.1;
+					};
+				};
+			};
+			buildConfigurationList = 8E11D21C2CF4D89D0085AE70 /* Build configuration list for PBXProject "OpenGL Example-ColoredCube" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8E11D2182CF4D89C0085AE70;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 8E11D2222CF4D89D0085AE70 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8E11D2202CF4D89D0085AE70 /* OpenGL Example-ColoredCube */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8E11D21D2CF4D89D0085AE70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E11D2652CF4E1280085AE70 /* glad.c in Sources */,
+				8E11D23B2CF4DAEE0085AE70 /* Cube.cpp in Sources */,
+				8E11D23C2CF4DAEE0085AE70 /* Scene.cpp in Sources */,
+				8E11D23D2CF4DAEE0085AE70 /* main.cpp in Sources */,
+				8E11D2402CF4DB080085AE70 /* Window.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8E11D2262CF4D89D0085AE70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		8E11D2272CF4D89D0085AE70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		8E11D2292CF4D89D0085AE70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = "${PROJECT_DIR}/../../../libraries/glad/source";
+				HEADER_SEARCH_PATHS = (
+					"${PROJECT_DIR}/../../../libraries/glad/include",
+					"${PROJECT_DIR}/../../../libraries/sdl/include",
+					"${PROJECT_DIR}/../../../libraries/glm/include",
+				);
+				LIBRARY_SEARCH_PATHS = "${PROJECT_DIR}/../../../libraries/sdl/lib/macos";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8E11D22A2CF4D89D0085AE70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = "${PROJECT_DIR}/../../../libraries/glad/source";
+				HEADER_SEARCH_PATHS = (
+					"${PROJECT_DIR}/../../../libraries/glad/include",
+					"${PROJECT_DIR}/../../../libraries/sdl/include",
+					"${PROJECT_DIR}/../../../libraries/glm/include",
+				);
+				LIBRARY_SEARCH_PATHS = "${PROJECT_DIR}/../../../libraries/sdl/lib/macos";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8E11D21C2CF4D89D0085AE70 /* Build configuration list for PBXProject "OpenGL Example-ColoredCube" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E11D2262CF4D89D0085AE70 /* Debug */,
+				8E11D2272CF4D89D0085AE70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8E11D2282CF4D89D0085AE70 /* Build configuration list for PBXNativeTarget "OpenGL Example-ColoredCube" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8E11D2292CF4D89D0085AE70 /* Debug */,
+				8E11D22A2CF4D89D0085AE70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8E11D2192CF4D89C0085AE70 /* Project object */;
+}
