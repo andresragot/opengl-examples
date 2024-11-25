@@ -29,6 +29,7 @@
 		8E11D2622CF4DF990085AE70 /* libSDL2main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E11D25E2CF4DF990085AE70 /* libSDL2main.a */; };
 		8E11D2632CF4DF990085AE70 /* libSDL2maind.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E11D25F2CF4DF990085AE70 /* libSDL2maind.a */; };
 		8E11D2652CF4E1280085AE70 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 8E11D2642CF4E1280085AE70 /* glad.c */; };
+		8EDC72632CF4F6340054BABE /* Shaders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EDC72622CF4F6340054BABE /* Shaders.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,6 +71,8 @@
 		8E11D25E2CF4DF990085AE70 /* libSDL2main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2main.a; path = ../../../libraries/sdl/lib/macos/libSDL2main.a; sourceTree = "<group>"; };
 		8E11D25F2CF4DF990085AE70 /* libSDL2maind.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2maind.a; path = ../../../libraries/sdl/lib/macos/libSDL2maind.a; sourceTree = "<group>"; };
 		8E11D2642CF4E1280085AE70 /* glad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = glad.c; path = ../../../libraries/glad/source/glad.c; sourceTree = "<group>"; };
+		8EDC72612CF4F6340054BABE /* Shaders.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Shaders.hpp; path = "/Users/andresragot/projects/opengl-examples/1 colored cube/code/Shaders.hpp"; sourceTree = "<absolute>"; };
+		8EDC72622CF4F6340054BABE /* Shaders.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Shaders.cpp; path = "/Users/andresragot/projects/opengl-examples/1 colored cube/code/Shaders.cpp"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,8 @@
 				8E11D2642CF4E1280085AE70 /* glad.c */,
 				8E11D2362CF4DAEE0085AE70 /* Cube.hpp */,
 				8E11D23E2CF4DB080085AE70 /* Window.hpp */,
+				8EDC72612CF4F6340054BABE /* Shaders.hpp */,
+				8EDC72622CF4F6340054BABE /* Shaders.cpp */,
 				8E11D23F2CF4DB080085AE70 /* Window.cpp */,
 				8E11D2372CF4DAEE0085AE70 /* Cube.cpp */,
 				8E11D2382CF4DAEE0085AE70 /* main.cpp */,
@@ -208,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EDC72632CF4F6340054BABE /* Shaders.cpp in Sources */,
 				8E11D2652CF4E1280085AE70 /* glad.c in Sources */,
 				8E11D23B2CF4DAEE0085AE70 /* Cube.cpp in Sources */,
 				8E11D23C2CF4DAEE0085AE70 /* Scene.cpp in Sources */,

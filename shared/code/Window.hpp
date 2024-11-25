@@ -80,6 +80,8 @@ namespace udit
         {
             this->window_handle  = std::exchange (other.window_handle,  nullptr);
             this->opengl_context = std::exchange (other.opengl_context, nullptr);
+            
+            return *this;
         }
 
     public:
