@@ -1,11 +1,8 @@
 
-// Este c骴igo es de dominio p鷅lico
+// Este c贸digo es de dominio p煤blico
 // angel.rodriguez@udit.es
 
-#pragma once
-
 #include "Scene.hpp"
-
 #include <iostream>
 #include <cassert>
 
@@ -22,8 +19,12 @@ namespace udit
 
         "#version 330\n"
         ""
-        "uniform mat4 model_view_matrix;"
-        "uniform mat4 projection_matrix;"
+        "uniform mat4  model_view_matrix;"
+        "uniform mat4  projection_matrix;"
+        ""
+        "uniform float fog_near;"
+        "uniform float fog_far;"
+        "uniform vec3  fog_color;"
         ""
         "layout (location = 0) in vec3 vertex_coordinates;"
         "layout (location = 1) in vec3 vertex_color;"
@@ -32,8 +33,12 @@ namespace udit
         ""
         "void main()"
         "{"
-        "   gl_Position = projection_matrix * model_view_matrix * vec4(vertex_coordinates, 1.0);"
-        "   front_color = vertex_color;"
+        "   vec4  model_view_vertex = model_view_matrix * vec4(vertex_coordinates, 1.0);"
+        ""
+        "   float fog_intensity = 1.0 - clamp ((fog_far + model_view_vertex.z) / (fog_far - fog_near), 0.0, 1.0);"
+        ""
+        "   gl_Position = projection_matrix * model_view_vertex;"
+        "   front_color = mix (vertex_color, fog_color, fog_intensity);"
         "}";
 
     const string Scene::fragment_shader_code =
@@ -48,15 +53,15 @@ namespace udit
         "    fragment_color = vec4(front_color, 1.0);"
         "}";
 
-    Scene::Scene(unsigned width, unsigned height)
+    Scene::Scene(int width, int height)
     :
         angle(0)
     {
-        // Se establece la configuraci髇 b醩ica:
+        // Se establece la configuraci贸n b谩sica:
 
-        glEnable     (GL_CULL_FACE);
-        glDisable    (GL_DEPTH_TEST);
-        glClearColor (.2f, .2f, .2f, 1.f);
+        glEnable     (GL_CULL_FACE );
+        glEnable     (GL_DEPTH_TEST);               // Necesario para el cubo transparente
+        glClearColor (1.f, 1.f, 1.f, 1.f);
 
         // Se compilan y se activan los shaders:
 
@@ -67,7 +72,26 @@ namespace udit
         model_view_matrix_id = glGetUniformLocation (program_id, "model_view_matrix");
         projection_matrix_id = glGetUniformLocation (program_id, "projection_matrix");
 
+        // Se configura la niebla:
+
+        GLint fog_near  = glGetUniformLocation (program_id, "fog_near" );
+        GLint fog_far   = glGetUniformLocation (program_id, "fog_far"  );
+        GLint fog_color = glGetUniformLocation (program_id, "fog_color");
+
+        glUniform1f (fog_near,  5.f);
+        glUniform1f (fog_far,  35.f);
+        glUniform3f (fog_color, 1.f, 1.f, 1.f);
+
+        // Se establece la matriz de proyecci贸n:
+
         resize (width, height);
+
+        // Se crea la lista de cubos:
+
+        for (size_t index = 0; index < 10; index++)
+        {
+            cubes.push_back (Cube_Ptr(new Cube));
+        }
     }
 
     void Scene::update ()
@@ -77,25 +101,27 @@ namespace udit
 
     void Scene::render ()
     {
-        glClear (GL_COLOR_BUFFER_BIT);
+        glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        // Se rota el cubo y se empuja hacia el fondo:
+        // Se rotan los cubos y se empujan hacia el fondo:
 
-        glm::mat4 model_view_matrix(1);
+        glm::mat4 model_view_matrix;
 
-        model_view_matrix = glm::translate (model_view_matrix, glm::vec3(0.f, 0.f, -4.f));
-        model_view_matrix = glm::rotate    (model_view_matrix, angle, glm::vec3(1.f, 2.f, 1.f));
+        for (size_t index = 0, number_of_cubes = cubes.size (); index < number_of_cubes; index++)
+        {
+            model_view_matrix = glm::mat4(1);
+            model_view_matrix = glm::translate (model_view_matrix, glm::vec3(2.f - 4 * index, 0.f, -5.f - 5.f * index));
+            model_view_matrix = glm::rotate    (model_view_matrix, angle, glm::vec3(1.f, 2.f, 1.f));
 
-        glUniformMatrix4fv (model_view_matrix_id, 1, GL_FALSE, glm::value_ptr(model_view_matrix));
+            glUniformMatrix4fv (model_view_matrix_id, 1, GL_FALSE, glm::value_ptr(model_view_matrix));
 
-        // Se dibuja el cubo:
-
-        cube.render ();
+            cubes[index]->render ();
+        }
     }
 
-    void Scene::resize (unsigned width, unsigned height)
+    void Scene::resize (int width, int height)
     {
-        glm::mat4 projection_matrix = glm::perspective (20.f, GLfloat(width) / height, 1.f, 5000.f);
+        glm::mat4 projection_matrix = glm::perspective (20.f, GLfloat(width) / height, 0.1f, 1000.f);
 
         glUniformMatrix4fv (projection_matrix_id, 1, GL_FALSE, glm::value_ptr(projection_matrix));
 
@@ -111,12 +137,12 @@ namespace udit
         GLuint   vertex_shader_id = glCreateShader (GL_VERTEX_SHADER  );
         GLuint fragment_shader_id = glCreateShader (GL_FRAGMENT_SHADER);
 
-        // Se carga el c骴igo de los shaders:
+        // Se carga el c贸digo de los shaders:
 
-        const char *   vertex_shaders_code[] = {          vertex_shader_code.c_str () };
-        const char * fragment_shaders_code[] = {        fragment_shader_code.c_str () };
-        const GLint    vertex_shaders_size[] = { (GLint)  vertex_shader_code.size  () };
-        const GLint  fragment_shaders_size[] = { (GLint)fragment_shader_code.size  () };
+        const char *   vertex_shaders_code[] = {   vertex_shader_code.c_str () };
+        const char * fragment_shaders_code[] = { fragment_shader_code.c_str () };
+        const GLint    vertex_shaders_size[] = { GLint(  vertex_shader_code.size ()) };
+        const GLint  fragment_shaders_size[] = { GLint(fragment_shader_code.size ()) };
 
         glShaderSource  (  vertex_shader_id, 1,   vertex_shaders_code,   vertex_shaders_size);
         glShaderSource  (fragment_shader_id, 1, fragment_shaders_code, fragment_shaders_size);
@@ -126,7 +152,7 @@ namespace udit
         glCompileShader (  vertex_shader_id);
         glCompileShader (fragment_shader_id);
 
-        // Se comprueba que si la compilaci髇 ha tenido 閤ito:
+        // Se comprueba que si la compilaci贸n ha tenido 茅xito:
 
         glGetShaderiv   (  vertex_shader_id, GL_COMPILE_STATUS, &succeeded);
         if (!succeeded) show_compilation_error (  vertex_shader_id);
@@ -147,7 +173,7 @@ namespace udit
 
         glLinkProgram   (program_id);
 
-        // Se comprueba si el linkage ha tenido 閤ito:
+        // Se comprueba si el linkage ha tenido 茅xito:
 
         glGetProgramiv  (program_id, GL_LINK_STATUS, &succeeded);
         if (!succeeded) show_linkage_error (program_id);

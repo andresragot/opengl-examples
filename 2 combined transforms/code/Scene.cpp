@@ -56,7 +56,7 @@ namespace udit
 
         glEnable     (GL_CULL_FACE);
         glEnable     (GL_DEPTH_TEST);
-        glClearColor (0.f, 0.f, 0.f, 1.f);
+        glClearColor (.2f, .2f, .2f, 1.f);
 
         // Se compilan y se activan los shaders:
 
@@ -77,7 +77,6 @@ namespace udit
 
     void Scene::render ()
     {
-        glEnable     (GL_DEPTH_TEST);
         glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // Se dibuja un cubo aplicándole un transform:
@@ -96,9 +95,9 @@ namespace udit
 
         glm::mat4 model_view_matrix_2 = glm::mat4(1);
 
-        model_view_matrix_2 = glm::rotate    (model_view_matrix_2, angle, glm::vec3(0.f, 1.f, 0.f));
         model_view_matrix_2 = glm::translate (model_view_matrix_2, glm::vec3(5.f, 0.f, 0.f));
         model_view_matrix_2 = glm::scale     (model_view_matrix_2, glm::vec3(0.5f));
+        model_view_matrix_2 = glm::rotate    (model_view_matrix_2, angle * 5.f, glm::vec3(0.f, 1.f, 0.f));
 
         model_view_matrix_2 = model_view_matrix_1 * model_view_matrix_2;
         
