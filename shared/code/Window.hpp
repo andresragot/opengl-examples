@@ -70,7 +70,7 @@ namespace udit
 
         Window & operator = (const Window & ) = delete;
         
-        Window(Window && other) noexcept
+        Window(Window && other)
         {
             this->window_handle  = std::exchange (other.window_handle,  nullptr);
             this->opengl_context = std::exchange (other.opengl_context, nullptr);
