@@ -72,5 +72,31 @@ namespace udit
         glBindBuffer (GL_ARRAY_BUFFER, vbo_ids[COLOR_VBO]);
         glBufferData (GL_ARRAY_BUFFER, sizeof(colors), colors, GL_STATIC_DRAW);
         
+        glEnableVertexAttribArray (1);
+        glVertexAttribPointer (1, 3, GL_FLOAT, GL_FALSE, 0, 0);
+        
+        // Se suben a un EBO los datos de índices:
+        
+        glBindBuffer (GL_ELEMENT_ARRAY_BUFFER, vbo_ids[INDICES_EBO]);
+        glBufferData (GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+        
+        glBindVertexArray (0);
+    }
+
+    Cube::~Cube()
+    {
+        // Se liberan los VBOs y el VAO usados:
+        glDeleteVertexArrays (1, &vao_id);
+        glDeleteBuffers      (VBO_COUNT, vbo_ids);
+    }
+
+
+    void Cube::render()
+    {
+        // Se selecciona el VAO que contiene los datos del objeto y se dibujan sus elemntos:
+        
+        glBindVertexArray (vao_id);
+        glDrawElements    (GL_TRIANGLES, sizeof(indices), GL_UNSIGNED_BYTE, 0);
+        glBindVertexArray (0);
     }
 }

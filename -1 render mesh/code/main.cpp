@@ -5,8 +5,10 @@
 //  Created by Andrés Ragot on 3/12/24.
 //
 
+#include "Scene.hpp"
 #include "Window.hpp"
 
+using udit::Scene;
 using udit::Window;
 
 int main (int , char * [])
@@ -24,6 +26,7 @@ int main (int , char * [])
         { 3, 3}
      );
     
+    Scene scene(viewport_width, viewport_height);
     
     bool exit = false;
     
@@ -43,7 +46,11 @@ int main (int , char * [])
         
         // Se actualiza la escena:
         
+        scene.update ();
+        
         // Se redibuja la escena:
+        
+        scene.render();
         
         // Se actualiza el contenido de la ventana:
         
