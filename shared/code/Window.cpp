@@ -2,8 +2,6 @@
 // Este código es de dominio público
 // angel.rodriguez@udit.es
 
-#pragma once
-
 #include <cassert>
 #include <glad/glad.h>
 #include <SDL_opengl.h>

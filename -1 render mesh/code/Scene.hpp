@@ -8,6 +8,8 @@
 #pragma once
 
 #include "Cube.hpp"
+#include "Mesh.hpp"
+#include "Shaders.hpp"
 #include <string>
 
 namespace udit
@@ -21,7 +23,12 @@ namespace udit
         GLint model_view_matrix_id;
         GLint projection_matrix_id;
         
-        Cube cube;
+        // Cube cube;
+        Plane plane;
+        
+        Vertex_Shader     vertex_shader;
+        Fragment_Shader fragment_shader;
+        Shader_Program   shader_program;
         float angle;
     public:
         Scene (unsigned width, unsigned height);
@@ -29,11 +36,6 @@ namespace udit
         void update ();
         void render ();
         void resize (unsigned width, unsigned height);
-        
-    private:
-        GLuint compile_shader       ();
-        void show_compilation_error (GLuint shader_id);
-        void show_linkage_error     (GLuint program_id);
     };
 }
 

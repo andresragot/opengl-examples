@@ -29,6 +29,8 @@
 		8E0AC8092CFF742700E60A93 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E0AC8082CFF742700E60A93 /* main.cpp */; };
 		8E0AC80C2CFF781600E60A93 /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E0AC80B2CFF781600E60A93 /* Scene.cpp */; };
 		8E0AC80F2CFF788500E60A93 /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E0AC80E2CFF788500E60A93 /* Cube.cpp */; };
+		8E2A196D2D059E8500C07306 /* Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A196C2D059E8500C07306 /* Mesh.cpp */; };
+		8E2A19702D05D76100C07306 /* Shaders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E2A196F2D05D76100C07306 /* Shaders.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,6 +72,10 @@
 		8E0AC80B2CFF781600E60A93 /* Scene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Scene.cpp; path = "/Users/andresragot/projects/opengl-examples/-1 render mesh/code/Scene.cpp"; sourceTree = "<absolute>"; };
 		8E0AC80D2CFF788500E60A93 /* Cube.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Cube.hpp; path = "/Users/andresragot/projects/opengl-examples/-1 render mesh/code/Cube.hpp"; sourceTree = "<absolute>"; };
 		8E0AC80E2CFF788500E60A93 /* Cube.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Cube.cpp; path = "/Users/andresragot/projects/opengl-examples/-1 render mesh/code/Cube.cpp"; sourceTree = "<absolute>"; };
+		8E2A196B2D059E8500C07306 /* Mesh.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Mesh.hpp; path = "/Users/andresragot/projects/opengl-examples/shared/code/Mesh.hpp"; sourceTree = "<absolute>"; };
+		8E2A196C2D059E8500C07306 /* Mesh.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Mesh.cpp; path = "/Users/andresragot/projects/opengl-examples/shared/code/Mesh.cpp"; sourceTree = "<absolute>"; };
+		8E2A196E2D05D76100C07306 /* Shaders.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Shaders.hpp; path = "/Users/andresragot/projects/opengl-examples/shared/code/Shaders.hpp"; sourceTree = "<absolute>"; };
+		8E2A196F2D05D76100C07306 /* Shaders.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Shaders.cpp; path = "/Users/andresragot/projects/opengl-examples/shared/code/Shaders.cpp"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +109,12 @@
 		8E0AC7CD2CFF71A000E60A93 = {
 			isa = PBXGroup;
 			children = (
+				8E2A196E2D05D76100C07306 /* Shaders.hpp */,
+				8E2A196F2D05D76100C07306 /* Shaders.cpp */,
 				8E0AC80D2CFF788500E60A93 /* Cube.hpp */,
 				8E0AC80E2CFF788500E60A93 /* Cube.cpp */,
+				8E2A196B2D059E8500C07306 /* Mesh.hpp */,
+				8E2A196C2D059E8500C07306 /* Mesh.cpp */,
 				8E0AC8082CFF742700E60A93 /* main.cpp */,
 				8E0AC80A2CFF781600E60A93 /* Scene.hpp */,
 				8E0AC80B2CFF781600E60A93 /* Scene.cpp */,
@@ -208,8 +218,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E2A196D2D059E8500C07306 /* Mesh.cpp in Sources */,
 				8E0AC80C2CFF781600E60A93 /* Scene.cpp in Sources */,
 				8E0AC7E12CFF725A00E60A93 /* glad.c in Sources */,
+				8E2A19702D05D76100C07306 /* Shaders.cpp in Sources */,
 				8E0AC8092CFF742700E60A93 /* main.cpp in Sources */,
 				8E0AC8072CFF72DB00E60A93 /* Window.cpp in Sources */,
 				8E0AC80F2CFF788500E60A93 /* Cube.cpp in Sources */,

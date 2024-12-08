@@ -23,7 +23,7 @@ namespace udit
             INDICES_EBO,
             VBO_COUNT
         };
-        
+    public:
         // Arrays de datos del cubo base:
         static const GLfloat coordinates [];
         static const GLfloat colors      [];
