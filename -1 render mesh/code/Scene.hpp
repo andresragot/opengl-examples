@@ -25,9 +25,8 @@ namespace udit
         
         // Cube cube;
         Plane plane;
-        
-        Vertex_Shader     vertex_shader;
-        Fragment_Shader fragment_shader;
+        Cone  cone;
+
         Shader_Program   shader_program;
         float angle;
     public:

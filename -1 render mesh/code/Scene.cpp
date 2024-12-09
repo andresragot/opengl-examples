@@ -50,15 +50,15 @@ namespace udit
     Scene::Scene(unsigned width, unsigned height)
     :
         angle(0),
-        plane (10, 5, 4, 3),
-        vertex_shader   ({   vertex_shader_code }),
-        fragment_shader ({ fragment_shader_code }),
-        shader_program(vertex_shader, fragment_shader)
+        plane (10, 8, 4, 3),
+        cone (4, 6, 4),
+        shader_program( { vertex_shader_code }, { fragment_shader_code } )
     {
         // Se establece la configuración básica:
         
         glEnable     (GL_CULL_FACE);
         glDisable    (GL_DEPTH_TEST);
+        // glFrontFace(GL_CW); // Cambia la orientación frontal a sentido horario
         glClearColor (.2f, .2f, .2f, .1f);
         
         shader_program.use();
@@ -82,13 +82,14 @@ namespace udit
         
         glm::mat4 model_view_matrix(1);
         
-        model_view_matrix = glm::translate (model_view_matrix, glm::vec3(0.f, 0.f, -4.f));
-        // model_view_matrix = glm::rotate    (model_view_matrix, angle, glm::vec3(0.f, 1.f, 0.f));
+        model_view_matrix = glm::translate (model_view_matrix, glm::vec3(0.f, 0.f, -10.f));
+        model_view_matrix = glm::rotate    (model_view_matrix, angle, glm::vec3(0.f, 1.f, 0.f));
         
         glUniformMatrix4fv (model_view_matrix_id, 1, GL_FALSE, glm::value_ptr(model_view_matrix));
         
         // Se dibuja el cubo:
         plane.render();
+         cone.render();
     }
 
     void Scene::resize(unsigned width, unsigned height)

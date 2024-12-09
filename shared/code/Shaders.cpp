@@ -35,12 +35,6 @@ namespace udit
             shader_size.push_back((GLint) str.size());
         }
         
-        for (size_t i = 0; i < shader_code.size(); ++i)
-        {
-            std::cout << "Shader source[" << i << "]: " << shader_code[i] << std::endl;
-            std::cout << "Shader size[" << i << "]: " << shader_size[i] << std::endl;
-        }
-        
         glShaderSource  (id, (GLsizei) shader_code.size(), shader_code.data(), shader_size.data());
         
         glCompileShader (id);
@@ -64,15 +58,15 @@ namespace udit
         
         assert(false);
     }
-
-    Shader_Program::Shader_Program (const Vertex_Shader & vertex_shader, const Fragment_Shader & fragment_shader)
+    
+    void Shader_Program::initialize(GLuint vertex_shader_id, GLuint fragment_shader_id)
     {
         GLint succeded = GL_FALSE;
         
         program_id = glCreateProgram ();
         
-        glAttachShader (program_id, vertex_shader.get_id());
-        glAttachShader (program_id, fragment_shader.get_id());
+        glAttachShader (program_id, vertex_shader_id);
+        glAttachShader (program_id, fragment_shader_id);
         glLinkProgram  (program_id);
         
         glGetProgramiv (program_id, GL_LINK_STATUS, &succeded);

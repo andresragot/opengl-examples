@@ -6,6 +6,8 @@
 //
 
 #include "Mesh.hpp"
+
+#include <cmath>
 #include <iostream>
 
 namespace udit {
@@ -57,7 +59,7 @@ namespace udit {
         float size_width  = width  / float (cols);
         float size_height = height / float (rows);
         
-        vec3 vertex = vec3 { -width / 2.f, height / 2.f, -10.f};
+        vec3 vertex = vec3 { -width / 2.f, -2.f, - height / 2.f};
         
         for (unsigned j = 0; j < rows + 1; ++j)
         {
@@ -69,7 +71,7 @@ namespace udit {
                 
                 vertex.x += size_width;
             }
-            vertex.y -= size_height;
+            vertex.z += size_height;
             vertex.x = - width / 2.f;
         }
         
@@ -91,6 +93,48 @@ namespace udit {
                 // indexs.push_back ({j * cols + j + i, j * cols + j + i + cols + 2, j * cols + j + i + 1});
             }
         }
+        
+        build_mesh();
+    }
+
+    void Cone::build_cone()
+    {
+        coordinates.reserve (sides + 1);
+            normals.reserve (sides + 1);
+             colors.reserve (sides + 1);
+             indexs.reserve (sides * 3);
+        
+        vec3 vertex_top    = vec3 { 0.f, height / 2.f - 1.f, 0.f };
+        vec3 vertex_bottom = vec3 { radius, - height / 2.f - 1.f, 0.f};
+        vec3 normal        = vec3 { 0.f, 0.f, 0.f};
+        
+        coordinates.push_back (vertex_top);
+            normals.push_back ({0.f, 1.f, 0.f}); 
+             colors.push_back (random_color());
+        
+        float angle_step = 360.f / float (sides) * deg_to_rad;
+        
+        for (unsigned i = 0; i < sides; ++i)
+        {
+            float cos_value = cos (angle_step * i);
+            float sin_value = sin (angle_step * i);
+            vertex_bottom.x = radius * cos_value;
+            vertex_bottom.z = radius * sin_value;
+            normal = { cos_value, 0.f, sin_value };
+            
+            coordinates.push_back (vertex_bottom);
+                normals.push_back (glm::normalize(normal));
+                 colors.push_back (random_color());
+            
+            indexs.push_back(i + 1);
+            indexs.push_back(0);
+            
+            if (i + 1 >= sides)
+                indexs.push_back(1);
+            else
+                indexs.push_back(i + 2);
+        }
+        std::cout << "Debug" << std::endl;
         
         build_mesh();
     }
@@ -162,6 +206,4 @@ namespace udit {
                 float(rand ()) / float(RAND_MAX)
             );
     }
-
-    
 }

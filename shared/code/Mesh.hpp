@@ -72,7 +72,19 @@ namespace udit
 
     class Cone : public Mesh
     {
+        const float PI = 3.14159265f;
+        const float deg_to_rad = PI / 180;
         
+        float radius;
+        float height;
+        unsigned sides;
+        
+    public:
+        Cone (float radius, float height, unsigned sides) : Mesh(), radius (radius), height(height), sides (sides) { build_cone(); }
+        Cone () = default;
+        
+    private:
+        void build_cone();
     };
 
     class CubeA : public Mesh
