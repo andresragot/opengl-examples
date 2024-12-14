@@ -26,6 +26,7 @@ namespace udit
         // Cube cube;
         Plane plane;
         Cone  cone;
+        Cylinder cylinder;
 
         Shader_Program   shader_program;
         float angle;

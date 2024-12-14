@@ -94,6 +94,26 @@ namespace udit
 
     class Cylinder : public Mesh
     {
+        const float PI = 3.14159265f;
+        const float deg_to_rad = PI / 180;
         
+        float top_radius;
+        float bottom_radius;
+        float height;
+        unsigned sides;
+        
+    public:
+        Cylinder (float top_radius, float bottom_radius, float height, unsigned sides) :
+            Mesh(),
+            top_radius(top_radius),
+            bottom_radius(bottom_radius),
+            height(height),
+            sides(sides)
+        { build_cylinder(); }
+        
+        Cylinder () = default;
+        
+    private:
+        void build_cylinder();
     };
 }

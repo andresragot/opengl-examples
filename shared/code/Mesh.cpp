@@ -59,7 +59,7 @@ namespace udit {
         float size_width  = width  / float (cols);
         float size_height = height / float (rows);
         
-        vec3 vertex = vec3 { -width / 2.f, -2.f, - height / 2.f};
+        vec3 vertex = vec3 { - width / 2.f, 0.f, - height / 2.f};
         
         for (unsigned j = 0; j < rows + 1; ++j)
         {
@@ -99,42 +99,148 @@ namespace udit {
 
     void Cone::build_cone()
     {
-        coordinates.reserve (sides + 1);
-            normals.reserve (sides + 1);
-             colors.reserve (sides + 1);
-             indexs.reserve (sides * 3);
+        coordinates.reserve (sides + 2);
+            normals.reserve (sides + 2);
+             colors.reserve (sides + 2);
+             indexs.reserve (sides * 3 * 2);
         
-        vec3 vertex_top    = vec3 { 0.f, height / 2.f - 1.f, 0.f };
-        vec3 vertex_bottom = vec3 { radius, - height / 2.f - 1.f, 0.f};
+        vec3 vertex_top    = vec3 { 0.f, height, 0.f };
+        vec3 vertex_bottom = vec3 { 0.f, 0.f, 0.f};
         vec3 normal        = vec3 { 0.f, 0.f, 0.f};
         
+        // Indice de abajo
+        coordinates.push_back (vertex_bottom);
+            normals.push_back ({0.f, -1.f, 0.f});
+             colors.push_back (random_color());
+        
+        // Indice de arriba
         coordinates.push_back (vertex_top);
             normals.push_back ({0.f, 1.f, 0.f}); 
              colors.push_back (random_color());
         
-        float angle_step = 360.f / float (sides) * deg_to_rad;
+        float angle_step = (360.f / float (sides)) * deg_to_rad;
         
         for (unsigned i = 0; i < sides; ++i)
         {
             float cos_value = cos (angle_step * i);
             float sin_value = sin (angle_step * i);
+            
             vertex_bottom.x = radius * cos_value;
             vertex_bottom.z = radius * sin_value;
+            
             normal = { cos_value, 0.f, sin_value };
             
             coordinates.push_back (vertex_bottom);
                 normals.push_back (glm::normalize(normal));
                  colors.push_back (random_color());
             
-            indexs.push_back(i + 1);
-            indexs.push_back(0);
+            GLuint last_side = i + 3;
             
             if (i + 1 >= sides)
-                indexs.push_back(1);
-            else
-                indexs.push_back(i + 2);
+            {
+                last_side = 2;
+            }
+            
+            // Cara de lado
+            indexs.push_back(i + 2);
+            indexs.push_back(1);
+            indexs.push_back(last_side);
+            
+            // Cara del suelo
+            indexs.push_back(0);
+            indexs.push_back(i + 2);
+            indexs.push_back(last_side);
         }
         std::cout << "Debug" << std::endl;
+        
+        build_mesh();
+    }
+
+    void Cylinder::build_cylinder()
+    {
+        coordinates.reserve ((sides * 2) + 2);
+            normals.reserve ((sides * 2) + 2);
+             colors.reserve ((sides * 2) + 2);
+             indexs.reserve ((sides * 12));
+        
+        vec3 vertex_top    = vec3 {0.f, height,  0.f};
+        vec3 vertex_bottom = vec3 {0.f, 0.f, 0.f};
+        vec3 normal        = vec3 {0.f, 0.f, 0.f};
+        
+        // Indice de abajo
+        coordinates.push_back (vertex_bottom);
+            normals.push_back ({0.f, -1.f, 0.f});
+             colors.push_back (random_color());
+        
+        // Indice de arriba
+        coordinates.push_back (vertex_top);
+            normals.push_back ({0.f, 1.f, 0.f});
+             colors.push_back (random_color());
+        
+        float angle_step = (360.f / float (sides)) * deg_to_rad;
+        
+        // Base de abajo
+        for (unsigned i = 0; i < sides; ++i)
+        {
+            float cos_value = cos (angle_step * i);
+            float sin_value = sin (angle_step * i);
+            
+            normal = { cos_value, 0.f, sin_value };
+            
+            vertex_bottom.x = bottom_radius * cos_value;
+            vertex_bottom.z = bottom_radius * sin_value;
+            
+            coordinates.push_back (vertex_bottom);
+                normals.push_back (glm::normalize(normal));
+                 colors.push_back (random_color());
+        }
+        
+        for (unsigned i = 0; i < sides; ++i)
+        {
+            float cos_value = cos (angle_step * i);
+            float sin_value = sin (angle_step * i);
+            
+            normal = { cos_value, 0.f, sin_value };
+            
+            vertex_top.x    = top_radius    * cos_value;
+            vertex_top.z    = top_radius    * sin_value;
+            
+            coordinates.push_back (vertex_top);
+                normals.push_back (glm::normalize(normal));
+                 colors.push_back (random_color());
+        }
+        
+        for (unsigned i = 0; i < sides; ++i)
+        {
+            GLuint last_side_bottom = i + 3;
+            GLuint last_side_top    = i + sides + 3;
+            
+            if (i + 1 >= sides)
+            {
+                last_side_bottom = 2;
+                last_side_top    = sides + 2;
+            }
+
+            // Parte de abajo
+            indexs.push_back (0);
+            indexs.push_back (i + 2);
+            indexs.push_back (last_side_bottom);
+            
+            // Parte de arriba
+            indexs.push_back (i + sides + 2);
+            indexs.push_back (1);
+            indexs.push_back (last_side_top);
+            
+            // Lados
+            indexs.push_back (last_side_bottom);
+            indexs.push_back (i + 2);
+            indexs.push_back (i + sides + 2);
+            
+            indexs.push_back (i + sides + 2);
+            indexs.push_back (last_side_top);
+            indexs.push_back (last_side_bottom);
+        }
+        
         
         build_mesh();
     }

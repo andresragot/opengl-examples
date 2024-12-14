@@ -49,16 +49,17 @@ namespace udit
     
     Scene::Scene(unsigned width, unsigned height)
     :
-        angle(0),
-        plane (10, 8, 4, 3),
-        cone (4, 6, 4),
+        angle (0),
+        plane (20, 20, 4, 3),
+        cone (4, 6, 10),
+        cylinder (2, 2, 2, 10),
         shader_program( { vertex_shader_code }, { fragment_shader_code } )
     {
         // Se establece la configuración básica:
         
         glEnable     (GL_CULL_FACE);
         glDisable    (GL_DEPTH_TEST);
-        // glFrontFace(GL_CW); // Cambia la orientación frontal a sentido horario
+        // glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
         glClearColor (.2f, .2f, .2f, .1f);
         
         shader_program.use();
@@ -71,25 +72,67 @@ namespace udit
 
     void Scene::update()
     {
-        angle += 0.01f;
+        angle += 0.001f;
     }
 
     void Scene::render()
     {
         glClear(GL_COLOR_BUFFER_BIT);
         
-        // Se rota el cubo y se empuja hacia el fondo:
+        // Se calcula la posicion y rotación del plano
+        glm::mat4 plane_transform(1);
         
-        glm::mat4 model_view_matrix(1);
+        plane_transform = glm::translate (plane_transform, glm::vec3(0.f, -3.f, -10.f));
+        plane_transform = glm::rotate    (plane_transform, angle, glm::vec3(0.f, 1.f, 0.f));
         
-        model_view_matrix = glm::translate (model_view_matrix, glm::vec3(0.f, 0.f, -10.f));
-        model_view_matrix = glm::rotate    (model_view_matrix, angle, glm::vec3(0.f, 1.f, 0.f));
-        
-        glUniformMatrix4fv (model_view_matrix_id, 1, GL_FALSE, glm::value_ptr(model_view_matrix));
-        
-        // Se dibuja el cubo:
+        // Se dibuja el plano.
+        glUniformMatrix4fv (model_view_matrix_id, 1, GL_FALSE, glm::value_ptr(plane_transform));
         plane.render();
-         cone.render();
+
+        // Se calcula la posicion y rotación del cono
+        glm::mat4 cone_transform (1);
+        
+        cone_transform = glm::translate (cone_transform, glm::vec3(-5.f, 0.f, 0.f));
+        cone_transform = glm::rotate    (cone_transform, angle * 2, glm::vec3(0.f, 1.f, 0.f));
+
+        cone_transform = plane_transform * cone_transform;
+        
+        // Se calcula la posicion y rotación del cilindro
+        glm::mat4 cylinder_tranform (1);
+        
+        cylinder_tranform = glm::translate (cylinder_tranform, glm::vec3(5.f, 0.f, 0.f));
+        cylinder_tranform = glm::rotate    (cylinder_tranform, angle * 2, glm::vec3(0.f, 1.f, 0.f));
+        
+        cylinder_tranform = plane_transform * cylinder_tranform;
+        
+        angle = fmod(angle, glm::radians(360.0f));
+        
+        if (angle >= 0 && angle < glm::radians(180.f))
+        {
+            // Se dibuja el cilindro.
+            glUniformMatrix4fv (model_view_matrix_id, 1, GL_FALSE, glm::value_ptr(cylinder_tranform));
+            cylinder.render();
+
+            
+            // Se dibuja el cono.
+            glUniformMatrix4fv (model_view_matrix_id, 1, GL_FALSE, glm::value_ptr(cone_transform));
+            cone.render();
+        }
+        else
+        {
+            // Se dibuja el cono.
+            glUniformMatrix4fv (model_view_matrix_id, 1, GL_FALSE, glm::value_ptr(cone_transform));
+            cone.render();
+            
+            // Se dibuja el cilindro.
+            glUniformMatrix4fv (model_view_matrix_id, 1, GL_FALSE, glm::value_ptr(cylinder_tranform));
+            cylinder.render();
+        }
+        
+        
+        
+        
+        
     }
 
     void Scene::resize(unsigned width, unsigned height)
