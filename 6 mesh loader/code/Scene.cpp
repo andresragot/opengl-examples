@@ -74,7 +74,7 @@ namespace udit
 
         resize (width, height);
 
-        load_mesh ("../../../shared/assets/stanford-bunny.obj");
+        load_mesh ("../../../../../../../../shared/assets/stanford-bunny.obj");
     }
 
     Scene::~Scene()
