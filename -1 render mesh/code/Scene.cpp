@@ -1,9 +1,6 @@
-//
-//  Scene.cpp
-//  render-mesh
-//
-//  Created by Andrés Ragot on 3/12/24.
-//
+// author: Andrés Ragot - github.com/andresragot
+// Copyright (c)
+// 03/12/2024
 
 #include "Scene.hpp"
 #include "Mesh.hpp"
@@ -59,7 +56,7 @@ namespace udit
         
         glEnable     (GL_CULL_FACE);
         glDisable    (GL_DEPTH_TEST);
-        // glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+        glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
         glClearColor (.2f, .2f, .2f, .1f);
         
         shader_program.use();

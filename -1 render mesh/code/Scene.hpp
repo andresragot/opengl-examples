@@ -1,9 +1,6 @@
-//
-//  Scene.hpp
-//  render-mesh
-//
-//  Created by Andrés Ragot on 3/12/24.
-//
+// author: Andrés Ragot - github.com/andresragot
+// Copyright (c)
+// 03/12/2024
 
 #pragma once
 

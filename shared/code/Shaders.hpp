@@ -1,9 +1,6 @@
-//
-//  Shaders.hpp
-//  OpenGL Example-ColoredCube
-//
-//  Created by Andrés Ragot on 25/11/24.
-//
+// author: Andrés Ragot - github.com/andresragot
+// Copyright (c)
+// 03/12/2024
 
 #pragma once
 

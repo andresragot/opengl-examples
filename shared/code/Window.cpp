@@ -1,5 +1,5 @@
 
-// Este código es de dominio público
+// Este c—digo es de dominio pœblico
 // angel.rodriguez@udit.es
 
 #include <cassert>
