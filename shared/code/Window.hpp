@@ -1,5 +1,5 @@
 
-// Este c—digo es de dominio pœblico
+// Este código es de dominio público
 // angel.rodriguez@udit.es
 
 #pragma once
@@ -70,7 +70,7 @@ namespace udit
 
         Window & operator = (const Window & ) = delete;
         
-        Window(Window && other)
+        Window(Window && other) noexcept
         {
             this->window_handle  = std::exchange (other.window_handle,  nullptr);
             this->opengl_context = std::exchange (other.opengl_context, nullptr);

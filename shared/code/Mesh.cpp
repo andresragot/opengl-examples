@@ -63,7 +63,7 @@ namespace udit {
             for (unsigned i = 0; i < cols + 1; ++i)
             {
                 coordinates.push_back (vertex);
-                    normals.push_back ({0.f, 0.f, 1.f});
+                    normals.push_back ({0.f, 1.f, 0.f});
                      colors.push_back (random_color());
                 
                 vertex.x += size_width;

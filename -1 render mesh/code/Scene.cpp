@@ -47,7 +47,7 @@ namespace udit
     Scene::Scene(unsigned width, unsigned height)
     :
         angle (0),
-        plane (20, 20, 4, 3),
+        plane (10, 10, 5, 5),
         cone (4, 6, 10),
         cylinder (2, 2, 2, 10),
         shader_program( { vertex_shader_code }, { fragment_shader_code } )

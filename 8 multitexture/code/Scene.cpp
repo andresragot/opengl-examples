@@ -52,8 +52,8 @@ namespace udit
 
     const string Scene::texture_paths[] =
     {
-        "../../../shared/assets/uv-checker.png",
-        "../../../shared/assets/wood.png"
+        "../../../../../../../../shared/assets/uv-checker.png",
+        "../../../../../../../../shared/assets/wood.png"
     };
 
     Scene::Scene(int width, int height)

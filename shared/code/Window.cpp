@@ -1,6 +1,8 @@
 
-// Este c—digo es de dominio pœblico
+// Este código es de dominio público
 // angel.rodriguez@udit.es
+
+#pragma once
 
 #include <cassert>
 #include <glad/glad.h>
@@ -34,7 +36,12 @@ namespace udit
         SDL_GL_SetAttribute (SDL_GL_DOUBLEBUFFER,          1);
         SDL_GL_SetAttribute (SDL_GL_ACCELERATED_VISUAL,    1);
 
-        if (context_details.core_profile       ) SDL_GL_SetAttribute (SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+        SDL_GL_SetAttribute
+        (
+            SDL_GL_CONTEXT_PROFILE_MASK, 
+            context_details.core_profile ? SDL_GL_CONTEXT_PROFILE_CORE : SDL_GL_CONTEXT_PROFILE_COMPATIBILITY
+        );
+
         if (context_details.depth_buffer_size  ) SDL_GL_SetAttribute (SDL_GL_DEPTH_SIZE,     context_details.depth_buffer_size);
         if (context_details.stencil_buffer_size) SDL_GL_SetAttribute (SDL_GL_STENCIL_SIZE, context_details.stencil_buffer_size);
 

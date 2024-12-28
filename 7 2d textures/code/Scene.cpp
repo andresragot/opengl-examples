@@ -49,7 +49,7 @@ namespace udit
         "    fragment_color = vec4(texture (sampler2d, texture_uv.st).rgb, 1.0);"
         "}";
 
-    const string Scene::texture_path = "../../../shared/assets/uv-checker.png";
+    const string Scene::texture_path = "../../../../../../../../shared/assets/uv-checker.png";
 
     Scene::Scene(int width, int height)
     :
