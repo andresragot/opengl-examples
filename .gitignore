@@ -39,5 +39,4 @@ x64/
 
 # Mac Specific files
 *.DS_Store
-**/libassimpd.a
 DerivedData/
