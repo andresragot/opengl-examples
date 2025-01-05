@@ -62,6 +62,7 @@ namespace udit
         glEnable     (GL_CULL_FACE);
         glEnable     (GL_DEPTH_TEST);
         glClearColor (.1f, .1f, .1f, 1.f);
+        glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
 
         // Se compilan y se activan los shaders:
 

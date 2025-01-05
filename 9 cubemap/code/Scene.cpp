@@ -17,6 +17,9 @@ namespace udit
     {
         glDisable (GL_DEPTH_TEST);
         glEnable  (GL_CULL_FACE);
+        
+        // Establece el modo de renderizado a puntos
+        // glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
 
         resize (width, height);
 

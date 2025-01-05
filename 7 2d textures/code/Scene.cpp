@@ -77,6 +77,7 @@ namespace udit
         glEnable     (GL_CULL_FACE );
         glEnable     (GL_DEPTH_TEST);
         glClearColor (0.1f, 0.1f, 0.1f, 1.f);
+        glPolygonMode(GL_FRONT_AND_BACK, GL_POINT);
 
         resize (width, height);
     }
