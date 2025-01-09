@@ -90,5 +90,4 @@ namespace udit
             angle_delta_x = angle_delta_y = 0.0;
         }
     }
-
 }

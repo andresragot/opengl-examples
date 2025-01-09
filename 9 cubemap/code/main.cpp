@@ -3,10 +3,13 @@
 // angel.rodriguez@udit.es
 
 #include "Scene.hpp"
+#include <iostream>
 #include <Window.hpp>
 
 using udit::Scene;
 using udit::Window;
+
+void check_gl_error(const std::string &label) { GLenum error; while ((error = glGetError()) != GL_NO_ERROR) { std::cerr << "OpenGL error [" << label << "]: " << error << std::endl; } }
 
 int main (int , char * [])
 {
@@ -87,6 +90,8 @@ int main (int , char * [])
         // Se actualiza el contenido de la ventana:
 
         window.swap_buffers ();
+        
+        check_gl_error("end main");
     }
     while (not exit);
 

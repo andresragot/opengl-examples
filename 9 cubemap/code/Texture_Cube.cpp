@@ -6,6 +6,9 @@
 #include <SOIL2.h>
 #include "Texture_Cube.hpp"
 
+#include <iostream>
+#include <filesystem>
+
 namespace udit
 {
 
@@ -81,6 +84,7 @@ namespace udit
     std::shared_ptr< Texture_Cube::Color_Buffer > Texture_Cube::load_image (const std::string & image_path)
     {
         // Se carga la imagen del archivo usando SOIL2:
+        std::cout << "Directorio actual: " << std::filesystem::current_path() << std::endl;
 
         int image_width    = 0;
         int image_height   = 0;
